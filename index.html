@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="ru">
+<!--<![endif]-->
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Instagram</title>
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="libs/animate/animate.css">
+
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/index.min.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script src="js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+
+    </script>
+
+    <!-- css+js -->
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-104399977-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="libs/modernizr/modernizr.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Oswald:200,300,400,500,600,700" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="top">
+        <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-arrow-up fa-stack-1x fa-inverse"></i>
+    </span>
+    </div>
+    <div class="modal fade" id="application" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="gradient">
+                        <h4 class="modal-title">Оставить заявку</h4>
+                        <form id="contact" action="mail.php" method="post" onsubmit="ga('send', 'event', 'form', 'order');">
+                            <div id="note"></div>
+                            <div id="fields">
+                                <input type="hidden" name="sub" value="Новая заявка">
+                                <div class="form-group has-feedback">
+                                    <label>Имя</label>
+                                    <input type="text" name="username" class="form-control" placeholder="Имя">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                </div>
+
+                                <div class="form-group has-feedback">
+                                    <label>Телефон или e-mail</label>
+                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="+38(099)999-99-99 или e-mail">
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                </div>
+
+                                <input type="submit" class="btn_submit disabled molisan-btn" value="Отправить" />
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="politic" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <div class="gradient">
+                        <h4 class="modal-title">Политика конфиденциальности</h4>
+                        <p>Настоящая политика конфиденциальности распространяются на всех посетителей и пользователей сайта. Пользователю сайта необходимо внимательно ознакомиться с настоящими Условиями. Пользователь дает разрешение на обработку своих персональных данных, указываемых им в анкете, на сайтах компании. Сайт использует всю добровольно предоставленную пользователем информацию для обработки и предоставления товаров. Никакая информация личного характера об отдельном пользователе не разглашается, кроме случаев, предусмотренных законом.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-header1 hidden-xs hidden-sm">
+
+        <div class="container">
+            <header class="row">
+                <style>
+                    html {
+                        overflow-x: hidden;
+                    }
+                    
+                    #video {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        z-index: -100;
+                        width: 100%;
+                        min-height: 100%;
+                        margin: auto;
+                        min-width: 100%;
+                        min-height: 100%;
+                        width: auto;
+                        height: auto;
+                    }
+
+                </style>
+                <div class="col-md-3 logo-box">
+                    <img src="img/logo.png" alt="Продажи из инстаграма" class="img-responsive">
+                </div>
+
+
+
+            </header>
+            <div class="row">
+                <div class="col-md-2 col-lg-3"></div>
+                <div class="col-md-8 col-lg-6 descr wow swing">
+                    <p class="title">Эффективное продвижение в instagram и facebook.</p>
+                    <p class="slogan">Начните получать на 65% больше продаж с инстаграм и facebook уже завтра!</p>
+                </div>
+                <div class="col-md-2 col-lg-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 modal-btn">
+                    <a href="#" data-toggle="modal" data-target="#application" class="btn-inst">Заказать обратный звонок</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-header hidden-lg hidden-md">
+
+        <div class="container">
+            <header class="row">
+
+                <div class="col-md-3 logo-box">
+
+                    <img src="img/logo.png" alt="Продажи из инстаграма" class="img-responsive">
+                </div>
+                <div class="col-md-6">
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <a data-toggle="collapse" data-target="#navbar-collapse" id="nav-anim-toggle">
+                                <span></span>
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#s2">Гарантии</a></li>
+                                <li><a href="#s3">Тарифы</a></li>
+                                <li><a href="#s4">Клиенты</a></li>
+                                <li><a href="#s5">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-md-3 phone">
+                    <a href="tel:+380738441184">+380738441184</a>
+                    <a href="tel:+380508441184">+380508441184</a>
+                    <a href="tel:+380968441184">+380968441184</a>
+                    <p class="messenger">Наши телефоны</p>
+                    <a href="tel:+380968441184 ">+380968441184 </a>
+                    <p class="messenger">Viber / WhatsApp</p>
+                </div>
+            </header>
+            <div class="row">
+                <div class="col-md-2 col-lg-3"></div>
+                <div class="col-md-8 col-lg-6 descr wow swing">
+                    <p class="title">Эффективное продвижение в instagram и facebook.</p>
+                    <p class="slogan">Начните получать на 65% больше продаж с инстаграм и facebook уже завтра!</p>
+                </div>
+                <div class="col-md-2 col-lg-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 modal-btn">
+                    <a href="#" data-toggle="modal" data-target="#application" class="btn-inst">Заказать обратный звонок</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="white">
+        <div class="container">
+            <div class="row why-box">
+                <div class="col-md-12">
+                    <h1>3 ПРИЧИНЫ РАБОТАТЬ С НАМИ</h1>
+                </div>
+                <div class="col-md-4 wow fadeInLeft">
+                    <img src="img/why_1.png" alt="Привлечем целевую аудиторию." class="img-responsive">
+                    <p class="title" style="color:#0080FF">Привлечем целевую аудиторию.</p>
+                    <p class="descr">Только целевая аудитория, заинтересованная в вашем продукте/услуге. Никаких ботов и "Мертвых душ".</p>
+                </div>
+                <div class="col-md-4 wow fadeInUp">
+                    <img src="img/why_2.png" alt="Выжмем максимум." class="img-responsive">
+                    <p class="title" style="color:#0080FF">Выжмем максимум.</p>
+                    <p class="descr">До 2 000 контактов с Вашей целевой аудиторией в день, это то, что отличает нас от конкурентов.</p>
+                </div>
+                <div class="col-md-4 wow fadeInRight">
+                    <img src="img/why_3.png" alt="Сделаем аудит." class="img-responsive">
+                    <p class="title" style="color:#0080FF">Сделаем аудит.</p>
+                    <p class="descr">Проведем аудит Вашего аккаунта в Instagram и Facebook, дадим рекомендации по оформлению и ведению.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12" style="text-align:center">
+            <h1><b>Наши работы</b></h1>
+        </div>
+    </div>
+    <div class="slider-inst">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators 
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>-->
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="container">
+                        <div class="col-md-1"></div>
+                        <div class="imageBox col-md-5">
+                            <img src="img/slide_1.jpg" alt="Делать" style="width: 100%;">
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <h3 style="font-size: 20px; text-align: center;">ВОЛШЕБНОЕ ШАМПАНСКОЕ</h3>
+                            <p style="text-align: center;">А вы уже слышали о таком, "волшебном шампанском"? Нашей команде была поставлена задача сделать так, что бы о нем узнала вся Украина. Этим мы упорно занимаемся уже 1,5 года(20 месяцев). За этот период времени мы получили 8 000 живых подписчиков и потенциальных клиентов. С каждым месяцем эта цифра растёт, а вместе с этим "волшебное шампанское" набирает популярность! Игорь является нашим постоянным клиентом и получает регулярные скидки от нашей компании.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="container">
+                        <div class="col-md-1"></div>
+                        <div class="imageBox col-md-5">
+                            <img class="imgCenter" src="img/slide_2.jpg" alt="Реклама" style="width: 100%;">
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <h3 style="font-size: 20px; text-align: center;">БРЕНДОВЫЕ СУМКИ</h3>
+                            <p style="text-align: center;">Взялись за работу начинающего и ещё совсем не популярного интернет магазина. Желанием клиента было заполучить живую аудиторию и соответственно клиентов для своего товара. По итогам месяца работы мы получили 12 клиентов и +350 живых подписчиков. Александра довольна работой и продолжает с нами работать уже 6 месяев.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="container">
+                        <div class="col-md-1"></div>
+                        <div class="imageBox col-md-5">
+                            <img class="imgCenter" src="img/slide_3.jpg" alt="Вести" style="width: 100%;">
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4">
+                            <h3 style="font-size: 20px; text-align: center;">ВИДЕО - БЛОГГЕР</h3>
+                            <p style="text-align: center;">Ты начинающий но очень амбициозный видеоблогер? Каждый знает что, что бы чего то достичь, нужно много работать. Задача блогера - регулярно добавлять видео, радовать своих подписчиков. Задача нашей компании - максимально прорекламировать клиента, желаемой им, целевой аудитории. Над чем мы и работаем уже месяц с Сергеем. Много расписывать не буду, просто предлагаю посмотреть статистику.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="container" id="s3">
+        <div class="row plan-box">
+            <div class="col-md-12">
+                <p class="title">Для<span style="color:#FF1493"> Instagram</span></p>
+            </div>
+        </div>
+        <div class="row plan-box">
+            <div class="col-md-4 wow fadeInLeft">
+                <img src="img/star-1.png" alt="30 000 контактов с Вашей целевой аудиторией / за месяц" class="img-responsive star-adv">
+                <p class="plan-title">Старт</p>
+                <p class="plan-dop-title">Раскрути свой личный аккаунт</p>
+                <div class="plan-ugol-box">
+                    <p class="plan-ugol">30 000 контактов с Вашей целевой аудиторией за месяц</p>
+                    <ul class="list-unstyled">
+                        <li>Оформление и описание аккаунта, создание логотипа</li>
+                        <li>Проверка безопасности аккаунта и рекомендации по ее повышению</li>
+                        <li>Сбор целевой аудитории по конкурентам, тематическим группам, хэштегам, географии, полу, возрасту из Instagram и Вконтакте</li>
+                        <li>Сбор стоп-слов для исключения коммерческих аккаунтов и ботов</li>
+                        <li>Гарантия от блокировки аккаунта</li>
+                        <li>От 1000 до 3000 живых подписчиков</li>
+                    </ul>
+                    <div class="plan-price">
+                        <p><span>1 999</span> грн/мес.</p>
+                    </div>
+                </div>
+                <a href="#" data-toggle="modal" data-target="#application" class="btn_submit">Самый выгодный!</a>
+            </div>
+            <div class="col-md-4 wow fadeInDown">
+                <img src="img/star-3.png" alt="40 000 контактов с Вашей целевой аудиторией / за месяц" class="img-responsive star-adv">
+                <p class="plan-title">Бизнес</p>
+                <p class="plan-dop-title">Начни получать заказы с Инстаграм</p>
+                <div class="plan-ugol-box">
+                    <img src="img/hit.png" class="hitPicture">
+
+                    <p class="plan-ugol">40 000 контактов с Вашей целевой аудиторией за месяц</p>
+                    <ul class="list-unstyled">
+                        <li>Оформление и описание аккаунта, создание логотипа</li>
+                        <li>Проверка безопасности аккаунта и рекомендации по ее повышению</li>
+                        <li>Сбор целевой аудитории по конкурентам, тематическим группам, хэштегам, географии, полу, возрасту из Instagram и Вконтакте</li>
+                        <li>Сбор стоп-слов для исключения коммерческих аккаунтов и ботов</li>
+                        <li>Гарантия от блокировки аккаунта</li>
+                        <li>От 1000 до 3000 живых подписчиков</li>
+                        <li>Размещение 30 постов с фотографиями + написание профессиональных текстов к постам</li>
+                        <li>Брендирование фотографий с нанесением логотипа</li>
+                        <li>Подбор, оптимизация и размещение хэштегов</li>
+                        <li>Поддержка 24/7</li>
+                        <li>Общение с подписчиками</li>
+                        <li>Подробный отчет с графикой</li>
+                    </ul>
+                    <div class="plan-price">
+                        <p><span>2 999</span> грн/мес.</p>
+                    </div>
+                </div>
+                <a href="#" data-toggle="modal" data-target="#application" class="btn_submit">Рекомендуем!</a>
+            </div>
+            <div class="col-md-4 wow fadeInRight">
+                <img src="img/star-5.png" alt="60 000 контактов с Вашей целевой аудиторией / за месяц" class="img-responsive star-adv">
+                <p class="plan-title">Бизнес Plus</p>
+                <p class="plan-dop-title">Выжми максимум! Обойди конкурентов</p>
+                <div class="plan-ugol-box">
+                    <p class="plan-ugol">60 000 контактов с Вашей целевой аудиторией за месяц</p>
+                    <ul class="list-unstyled">
+                        <li>Оформление и описание аккаунта, создание логотипа</li>
+                        <li>Проверка безопасности аккаунта и рекомендации по ее повышению</li>
+                        <li>Сбор целевой аудитории по конкурентам, тематическим группам, хэштегам, географии, полу, возрасту из Instagram и Вконтакте</li>
+                        <li>Сбор стоп-слов для исключения коммерческих аккаунтов и ботов</li>
+                        <li>Гарантия от блокировки аккаунта</li>
+                        <li>От 1000 до 3000 живых подписчиков</li>
+                        <li>Размещение 30 постов с фотографиями + написание профессиональных текстов к постам</li>
+                        <li>Брендирование фотографий с нанесением логотипа</li>
+                        <li>Подбор, оптимизация и размещение хэштегов</li>
+                        <li>Поддержка 24/7</li>
+                        <li>Общение с подписчиками</li>
+                        <li>Подробный отчет с графикой</li>
+                        <li>Размещение 50 постов с фотографиями + написание профессиональных текстов к постам</li>
+                        <li>Разработка и организация 2-х конкурсов или акций</li>
+                        <li>Создание дополнительного аккаунта для 2-х кратного увеличения охвата целевой аудитории</li>
+                    </ul>
+                    <div class="plan-price">
+                        <p><span>3 999</span> грн/мес.</p>
+                    </div>
+                </div>
+                <a href="#" data-toggle="modal" data-target="#application" class="btn_submit">Лучший пакет!</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" id="s3">
+        <div class="row plan-box">
+            <div class="col-md-12">
+                <p class="title">ВЫ ТАКЖЕ МОЖЕТЕ ПРИОБРЕСТИ</p>
+            </div>
+        </div>
+
+        <div class="col-md-offset-4 col-md-4 wow fadeInDown">
+            <img src="img/targeting.jpg" alt="Таргетинг" class="img-responsive">
+            <p class="plan-title"></p>
+            <div class="plan-ugol-box">
+                <p class="plan-ugol">Таргетинг</p>
+                <ul class="list-unstyled">
+                    <li>
+                        <p>Настройка официальной рекламы в инстаграм</p>
+                        <b>1500 грн. бюджет включен
+					Стоимость - 3500 грн 
+					</b></li>
+                </ul>
+            </div>
+            <a href="#" data-toggle="modal" data-target="#application" class="btn_submit">Заказать</a>
+        </div>
+        <div class="col-md-4 wow fadeInRight">
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="container" id="s2">
+        <div class="row garant-box">
+            <div class="col-md-12">
+                <p class="title">Наши гарантии</p>
+            </div>
+        </div>
+        <div class="row garant-box">
+            <div class="col-md-12">
+                <ul class="list-unstyled garant">
+                    <li class="wow fadeInLeft">
+                        <img src="img/garant-1.png" alt="Реальные подписчики" class="img-responsive">
+                        <p class="garant-title" style="color:#008000">Реальные подписчики</p>
+                        <p class="garant-descr">Никаких ботов и накруток. Мы напрямую заинтересованы в сотрудничестве.</p>
+                    </li>
+                    <li class="wow fadeInDown">
+                        <img src="img/garant-2.png" alt="Качество продвижения" class="img-responsive">
+                        <p class="garant-title" style="color:#008000">Качество продвижения</p>
+                        <p class="garant-descr">Вы будете иметь дело с креативными перфекционистами. Этим все сказано.</p>
+                    </li>
+                    <li class="wow fadeInRight">
+                        <img src="img/garant-3.png" alt="Поддержка" class="img-responsive">
+                        <p class="garant-title" style="color:#008000">Поддержка</p>
+                        <p class="garant-descr">Вы всегда сможете рассчитывать на наш совет и помощь в SMM-продвжении.</p>
+                    </li>
+                    <li class="wow fadeInLeft">
+                        <img src="img/garant-4.png" alt="Очевидный результат" class="img-responsive">
+                        <p class="garant-title" style="color:#008000">Очевидный результат</p>
+                        <p class="garant-descr">Прирост подписчиков будет составлять 1500 - 4000 чел/мес.</p>
+                    </li>
+                    <li class="wow fadeInUp">
+                        <img src="img/garant-5.png" alt="Безопасность" class="img-responsive">
+                        <p class="garant-title" style="color:#008000">Безопастность</p>
+                        <p class="garant-descr">Мы гарантируем вам аккуратную работу с Вашим аккаунтом и Вашими данными.</p>
+                    </li>
+                    <li class="wow fadeInDown">
+                        <img src="img/garant-6.png" alt="Уникальность" class="img-responsive">
+                        <p class="garant-title" style="color:#008000">Уникальность</p>
+                        <p class="garant-descr">Мы не сторонники шаблонов и всегда находим рабочие идеи для самых разных ниш.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 modal-btn wow swing">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSc3w9B4gNiELCX29__nqO4NKoimpXBM9Stpj8jbhsSw-ciubQ/viewform?c=0&w=1" class="btn-inst">Получить консультацию</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="s4">
+        <div class="row plan-box">
+            <div class="col-md-12">
+                <p class="title">НАШИ КЛИЕНТЫ</p>
+            </div>
+        </div>
+        <div class="row clients-box">
+            <div class="col-md-12">
+                <ul class="list-unstyled">
+                    <li>
+                        <img src="img/1.png" alt="Салоны красоты" class="img-responsive">
+                        <p>Салоны красоты</p>
+                    </li>
+                    <li>
+                        <img src="img/2.png" alt="Showroom fashion retail" class="img-responsive">
+                        <p>Showroom fashion retail</p>
+                    </li>
+                    <li>
+                        <img src="img/3.png" alt="E-commerce" class="img-responsive">
+                        <p>E-commerce</p>
+                    </li>
+                    <li>
+                        <img src="img/4.png" alt="Клиники и доктора" class="img-responsive">
+                        <p>Клиники и доктора</p>
+                    </li>
+                    <li>
+                        <img src="img/5.png" alt="Рестораны, клубы и кафе" class="img-responsive">
+                        <p>Рестораны, клубы и кафе</p>
+                    </li>
+
+                    <li>
+                        <img src="img/6.png" alt="Туроператоры и турагенства" class="img-responsive">
+                        <p>Туроператоры и турагенства</p>
+                    </li>
+                    <li>
+                        <img src="img/7.png" alt="Автосалоны" class="img-responsive">
+                        <p>Автосалоны</p>
+                    </li>
+                    <li>
+                        <img src="img/8.png" alt="Авиакомпании" class="img-responsive">
+                        <p>Авиакомпании</p>
+                    </li>
+                    <li>
+                        <img src="img/9.png" alt="СМИ" class="img-responsive">
+                        <p>СМИ</p>
+                    </li>
+                    <li>
+                        <img src="img/10.png" alt="Торговые центры" class="img-responsive">
+                        <p>Торговые центры</p>
+                    </li>
+
+                    <li>
+                        <img src="img/11.png" alt="Архитекторы" class="img-responsive">
+                        <p>Архитекторы</p>
+                    </li>
+                    <li>
+                        <img src="img/12.png" alt="Фотографы" class="img-responsive">
+                        <p>Фотографы</p>
+                    </li>
+                    <li>
+                        <img src="img/13.png" alt="Стилисты" class="img-responsive">
+                        <p>Стилисты</p>
+                    </li>
+                    <li>
+                        <img src="img/14.png" alt="Фотомодели" class="img-responsive">
+                        <p>Фотомодели</p>
+                    </li>
+                    <li>
+                        <img src="img/15.png" alt="Артисты" class="img-responsive">
+                        <p>Артисты</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<div class="container">
+    <div class="row">
+         <div class="faq-block big-block col-md-12" id="faq">
+        <div class="block">
+            <h2>FAQ. Вопросы и ответы:</h2>
+            <div class="faqs">
+                <div class="faq  faq-hide">
+                    <div class="faq-title">
+                        <p>Через какое время я получу результат и какой?</p>
+                    </div>
+                    <div class="faq-text">
+                        <p>В среднем, любой взятый в работу аккаунт Instagram получает первые результаты в течении двух недель.<br><br>Результатом считается рост общего количества подписчиков, а вместе с этим и повышение социальных реакций - лайки, репосты, комментарии показывающие интерес к вашей продукции или услугам (вопросы о цене, возможностях доставки в другие города, наличии того или иного товара, его размеров, ваше фактическое место положения и так дале). В случае предоставления услуг все примерно так же.</p>
+                    </div>
+                </div>
+                <div class="faq faq-hide">
+                    <div class="faq-title">
+                        <p>Накручиваете ли вы ботов?</p>
+                    </div>
+                    <div class="faq-text">
+                        <p class="faq_single_title">Категорически нет!</p>
+                        <p> Это обосновано тем, что Вам необходимо не количество подписчиков, дабы кого-либо обогнать или перед кем-либо похвастаться, а реальные люди, которые в процессе будут заинтересованны вашими товарами (услугами). «Мертвые» аккаунты создают только видимость на непродолжительное время, которая в последствии приносит только неудобства. Такие аккаунты Instagram блокирует, после чего «мертвые» подписчики списываются, а сам аккаунт уже не будет подлежать восстановлению. </p>
+                    </div>
+                </div>
+                <div class="faq faq-hide">
+                    <div class="faq-title">
+                        <p>Для какого бизнеса подходит инстаграм?</p>
+                    </div>
+                    <div class="faq-text">
+                        <p class="faq_single_title">Instagram подходит для любого бизнеса, где есть визуальный товар или услуга</p>
+                        <div class="three_column">
+                            <ul>
+                                <li class="first">Сервисный рынок</li>
+                                <li>Салоны красоты </li>
+                                <li>Дизайн-студии</li>
+                                <li>Рестораны/кафе </li>
+                                <li>Фитнес-клубы</li>
+                                <li>Детские сады</li>
+                                <li>Танцевальные школы </li>
+                                <li>Туризм </li>
+                                <li>Гостиничный бизнес </li>
+                                <li>Медицинские услуги </li>
+                                <li>Бюро переводов </li>
+                                <li>Проведение праздников</li>
+                                <li>Массажный салон</li>
+                                <li>Услуги аренды</li>
+                                <li>Типографии </li>
+                                <li>Магазины </li>
+                                <li>Автосервис</li>
+                                <li>Ателье</li>
+                                <li>Солярий </li>
+                            </ul>
+                            <ul>
+                                <li class="first">Товарный рынок </li>
+                                <li>Одежда </li>
+                                <li>Украшения</li>
+                                <li>Обувь </li>
+                                <li>Спортивные товары </li>
+                                <li>Игрушки </li>
+                                <li>Товары для дома </li>
+                                <li>Авто </li>
+                                <li>Товары для детей</li>
+                                <li>Зоотовары </li>
+                                <li>Бытовая химия </li>
+                                <li>Электротовары </li>
+                                <li>Средства связи </li>
+                                <li>Бытовая техника </li>
+                                <li>Косметика и парфюмерия </li>
+                                <li>Канцелярские товары </li>
+                                <li>Книги </li>
+                                <li>Товары для строительства </li>
+                                <li>Подарки и сувениры </li>
+                            </ul>
+                            <ul>
+                                <li class="first">Специалисты </li>
+                                <li>Стилисты </li>
+                                <li>Визажисты </li>
+                                <li>Фотографы</li>
+                                <li>Фитнес-тренеры </li>
+                                <li>Консультанты</li>
+                                <li>Психологи</li>
+                                <li>Диетологи </li>
+                                <li>Косметологи </li>
+                                <li>Художники </li>
+                                <li>Компьютерные мастера </li>
+                                <li>Репетиторы </li>
+                                <li>Швеи </li>
+                                <li>Личный водитель</li>
+                                <li>Массажисты </li>
+                                <li>Преподаватели</li>
+                                <li>Костюмеры </li>
+                                <li>Реставраторы</li>
+                                <li>Стоматологи</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+</div>
+   
+
+                <div class="footer-bg">
+                    <div class="container" id="s5">
+                        <footer class="row">
+                            <div class="col-md-3 logo-box">
+                                <img src="img/logo.png" alt="Продажи из инстаграма" class="img-responsive">
+                                <a href="#" data-toggle="modal" data-target="#application" class="footer-btn">Обратный звонок</a>
+                            </div>
+                            <div class="col-md-offset-1 col-md-4 footer-contacts">
+                                <h3>Контакты</h3>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <img src="img/mail.png" alt="Почта">
+                                        </td>
+                                        <td>
+                                            <p>
+                                                <span>E-mail:</span>
+                                                <a href="mailto:instagram@gmail.com">instagram@gmail.com</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="img/skype.png" alt="Viber">
+                                        </td>
+                                        <td>
+                                            <p>
+                                                <span>Skype:</span>
+                                                <a href='skype:live:instaface_6?chat'>INSTAGRAM</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="img/viber.png" alt="Viber">
+                                        </td>
+                                        <td>
+                                            <p>
+                                                <span>Viber \ WhatsApp:</span>
+                                                <a href="tel:+38000000000">+38000000000</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <div class="col-md-4 footer-contacts">
+                                <h3 class="footer-title">Контакты</h3>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <img src="img/phone.png" alt="Телефон">
+                                        </td>
+                                        <td width="150px">
+
+                                            <span style="width: 100%; margin-left: 40px">Телефон:</span>
+                                            <p style="width: 100%; margin-left: 20px"><a href="tel:+380738441184">+38000000000</a></p>
+                                            <p style="width: 100%; margin-left: 20px"><a href="tel:+380508441184">+38000000000</a></p>
+                                            <p style="width: 100%; margin-left: 20px"><a href="tel:+380968441184">+38000000000</a></p>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table style="margin-top: 25px;">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <img src="img/instagram-logo.png" alt="Телефон" width="43px;">
+                                            </td>
+                                            <td width="150px">
+
+                                                <span style="width: 100%; margin-left: 40px">Instagram:</span>
+                                                <p style="width: 100%; margin-left: 20px"><a href="https://www.instagram.com/instaface.for.you/">instagram.for.you</a></p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="politic">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>2014. Все права защищены.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="hidden"></div>
+
+                <div class="loader">
+                    <div class="loader_inner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--[if lt IE 9]>
+	<script src="libs/html5shiv/es5-shim.min.js"></script>
+	<script src="libs/html5shiv/html5shiv.min.js"></script>
+	<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
+	<script src="libs/respond/respond.min.js"></script>
+	<![endif]-->
+
+    <script src="libs/jquery/jquery-1.11.2.min.js"></script>
+    <script src="libs/waypoints/waypoints.min.js"></script>
+    <script src="libs/animate/animate-css.js"></script>
+    <script src="libs/plugins-scroll/plugins-scroll.js"></script>
+
+    <script src="js/index.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/my_script.js"></script>
+    <script src="js/jquery.maskedinput.js"></script>
+</body>
+
+</html>
